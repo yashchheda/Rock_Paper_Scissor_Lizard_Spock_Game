@@ -6,7 +6,7 @@ var http = require('http');
 var choices=["rock", "paper", "scissors","lizard","spock"];
 var win=0,lose=0,tie=0;
 var server= http.createServer(function (req, res) {
-  
+  var string;
   switch(req.url) {
     case '/':
 		  // show the user a simple form
@@ -43,7 +43,7 @@ var server= http.createServer(function (req, res) {
       if (req.method == 'POST') {
 		console.log("[200] " + req.method + " to " + req.url);
 		
-			var string = choices[Math.floor(Math.random()*choices.length)];
+			string = choices[Math.floor(Math.random()*choices.length)];
 			console.log("string '" + string + "' chosen");
 			res.writeHead(200, "OK", {'Content-Type': 'application/json;charset=utf-8'});
 			switch(string){
@@ -102,7 +102,7 @@ var server= http.createServer(function (req, res) {
 			console.log("[200] " + req.method + " to " + req.url);
 			console.log("request received");
 			
-			var string = choices[Math.floor(Math.random()*choices.length)];
+			string = choices[Math.floor(Math.random()*choices.length)];
 			console.log("string '" + string + "' chosen");
 			res.writeHead(200, "OK", {'Content-Type': 'application/json; charset=utf-8'}); 
 			switch(string){
@@ -161,7 +161,7 @@ var server= http.createServer(function (req, res) {
 			console.log("[200] " + req.method + " to " + req.url);
      
 				console.log("request received");
-				var string = choices[Math.floor(Math.random()*choices.length)];
+				string = choices[Math.floor(Math.random()*choices.length)];
 				console.log("string '" + string + "' chosen");
 				res.writeHead(200, "OK", {'Content-Type': 'application/json; charset=utf-8'}); 
 				switch(string){
@@ -219,7 +219,7 @@ var server= http.createServer(function (req, res) {
 			console.log("[200] " + req.method + " to " + req.url);
       
 				console.log("request received");
-				var string = choices[Math.floor(Math.random()*choices.length)];
+				string = choices[Math.floor(Math.random()*choices.length)];
 				console.log("string '" + string + "' chosen");
 				res.writeHead(200, "OK", {'Content-Type': 'application/json; charset=utf-8'}); 
 				switch(string){
@@ -278,7 +278,7 @@ var server= http.createServer(function (req, res) {
 			console.log("[200] " + req.method + " to " + req.url);
       
 			  console.log("request received");
-				var string = choices[Math.floor(Math.random()*choices.length)];
+				string = choices[Math.floor(Math.random()*choices.length)];
 				console.log("string '" + string + "' chosen");
 				res.writeHead(200, "OK", {'Content-Type': 'application/json; charset=utf-8'}); 
 				switch(string){
@@ -335,7 +335,7 @@ var server= http.createServer(function (req, res) {
       res.writeHead(404, "Not found", {'Content-Type': 'text/html'});
       res.end('<html><head><title>404 - Not found</title></head><body><h1>Not found.</h1></body></html>');
       console.log("[404] " + req.method + " to " + req.url);
-  };
+  }
 }).listen(3000);
 var address= server.address();
 console.log("Game is running at http://localhost:" + address.port + "/");
